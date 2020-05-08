@@ -12606,11 +12606,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Curso\\source\\repos\\SelfAssessmentFrontEnd\\SelfAssessmentFront\\SelfAssessmentFront.csproj",
+      "projectUniqueName": "C:\\Users\\Curso\\source\\repos\\SelfAssessmentFront\\SelfAssessmentFront\\SelfAssessmentFront.csproj",
       "projectName": "SelfAssessmentFront",
-      "projectPath": "C:\\Users\\Curso\\source\\repos\\SelfAssessmentFrontEnd\\SelfAssessmentFront\\SelfAssessmentFront.csproj",
+      "projectPath": "C:\\Users\\Curso\\source\\repos\\SelfAssessmentFront\\SelfAssessmentFront\\SelfAssessmentFront.csproj",
       "packagesPath": "C:\\Users\\Curso\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Curso\\source\\repos\\SelfAssessmentFrontEnd\\SelfAssessmentFront\\obj\\",
+      "outputPath": "C:\\Users\\Curso\\source\\repos\\SelfAssessmentFront\\SelfAssessmentFront\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
