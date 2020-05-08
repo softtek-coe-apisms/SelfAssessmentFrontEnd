@@ -10,6 +10,11 @@ namespace SelfAssessmentFront.Controllers
 {
     public class InterviewerController : Controller
     {
+        public IActionResult Index()
+        {
+            return View();
+        }
+
         public IActionResult Dashboard()
         {
             return View();
