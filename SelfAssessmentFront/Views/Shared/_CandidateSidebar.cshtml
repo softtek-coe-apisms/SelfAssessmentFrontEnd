@@ -1,8 +1,12 @@
-﻿    <!-- Sidebar -->
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<!-- Sidebar -->
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/Interviewer/Index">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/Candidate/Index">
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
         </div>
@@ -14,7 +18,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="/Interviewer/Dashboard">
+        <a class="nav-link" href="/Candidate/Courses">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span>
         </a>
@@ -23,17 +27,32 @@
     <!-- Divider -->
     <hr class="sidebar-divider">
 
-
-    <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link" href="/Interviewer/SearchCandidate">
-            <i class="fas fa-fw fa-search"></i>
-            <span>Search</span>
+        <a class="nav-link" href="#">
+            <i class="fas fa-fw fa-user"></i>
+            <span>Profile</span>
         </a>
     </li>
 
     <hr class="sidebar-divider">
 
+    <li class="nav-item">
+        <a class="nav-link" href="#">
+            <i class="fas fa-fw fa-pen-alt"></i>
+            <span>Self Assessment</span>
+        </a>
+    </li>
+
+    <hr class="sidebar-divider">
+
+    <li class="nav-item">
+        <a class="nav-link" href="#">
+            <i class="fas fa-fw fa-dumbbell"></i>
+            <span>Training program</span>
+        </a>
+    </li>
+
+    <hr class="sidebar-divider">
 
     <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item">
@@ -68,7 +87,6 @@
 
 </ul>
 <!-- End of Sidebar -->
-
 <!-- Logout Modal-->
 <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
