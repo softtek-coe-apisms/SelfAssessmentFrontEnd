@@ -54,10 +54,6 @@
             {
                 <partial name="_AdminSideBar" />
             }
-            else if (string.Equals(ViewBag.Vista, "Candidate"))
-            {
-                <partial name="_CandidateSideBar" />
-            }
 
         }
 
@@ -89,7 +85,11 @@
 
     <environment include="Development">
         <!-- Bootstrap core JavaScript-->
-        <script src="~/vendor/jquery/jquery.min.js"></script>
+        <script src="~/vendor/jquery/jquery.js"></script>
+        <script src="~/vendor/bootstrap/js/bootstrap.js"></script>
+        <script src="~/vendor/datatables/jquery.dataTables.js"></script>
+        <script src="~/vendor/datatables/dataTables.bootstrap4.js"></script>
+
         <script src="~/js/site.js" asp-append-version="true"></script>
     </environment>
     <environment exclude="Development">
@@ -108,17 +108,6 @@
         </script>
         <script src="~/js/site.js" asp-append-version="true"></script>
     </environment>
-
-    <!-- Core plugin JavaScript-->
-    <script src="~/vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Page level plugins -->
-    <script src="~/vendor/chart.js/Chart.min.js"></script>
-
-    @* para select *@
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
 
     @RenderSection("Scripts", required: false)
 </body>

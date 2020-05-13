@@ -10,17 +10,12 @@
 
     <title>@ViewData["Title"] - InterviewFront</title>
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"
-          asp-fallback-href="~/lib/font-awesome/css/all.min.css"
-          asp-fallback-test-class="fab" asp-fallback-test-property="font-style" asp-fallback-test-value="normal"
-          asp-suppress-fallback-integrity="true" />
-
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    @*<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
             integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
             crossorigin="anonymous">
-    </script>
+    </script>*@
 
     @* https://stackoverflow.com/questions/50895806/bootstrap-4-multiselect-dropdown *@
     <environment include="Development">
@@ -28,6 +23,10 @@
         @* para el multiselect *@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
         <link rel="stylesheet" href="~/css/site.css" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"
+              asp-fallback-href="~/lib/font-awesome/css/all.min.css"
+              asp-fallback-test-class="fab" asp-fallback-test-property="font-style" asp-fallback-test-value="normal"
+              asp-suppress-fallback-integrity="true" />
     </environment>
 
     <environment exclude="Development">
@@ -66,17 +65,6 @@
         </script>
         <script src="~/js/site.js" asp-append-version="true"></script>
     </environment>
-
-    <!-- Core plugin JavaScript-->
-    <script src="~/vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Page level plugins -->
-    <script src="~/vendor/chart.js/Chart.min.js"></script>
-
-    @* para select *@
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
 
     @RenderSection("Scripts", required: false)
 </body>
