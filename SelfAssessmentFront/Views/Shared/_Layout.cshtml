@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>@ViewData["Title"] - InterviewFront</title>
+    <title>@ViewData["Title"]</title>
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"
           asp-fallback-href="~/lib/font-awesome/css/all.min.css"
@@ -21,6 +21,7 @@
             integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
             crossorigin="anonymous">
     </script>
+
 
     @* https://stackoverflow.com/questions/50895806/bootstrap-4-multiselect-dropdown *@
     <environment include="Development">
@@ -53,6 +54,10 @@
             else if (string.Equals(ViewBag.Vista, "Admin"))
             {
                 <partial name="_AdminSideBar" />
+            }
+            else if (string.Equals(ViewBag.Vista, "Candidate"))
+            {
+                <partial name="_CandidateSideBar" />
             }
 
         }
@@ -89,7 +94,7 @@
         <script src="~/vendor/bootstrap/js/bootstrap.js"></script>
         <script src="~/vendor/datatables/jquery.dataTables.js"></script>
         <script src="~/vendor/datatables/dataTables.bootstrap4.js"></script>
-
+        <script src="~/vendor/MultiSelect/bootstrap-select.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
     </environment>
     <environment exclude="Development">

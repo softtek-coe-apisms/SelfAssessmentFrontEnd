@@ -18,5 +18,9 @@ namespace SelfAssessmentFront.Controllers
             return View();
         }
 
+        public IActionResult SelfAssessment()
+        {
+            return View();
+        }
     }
 }
