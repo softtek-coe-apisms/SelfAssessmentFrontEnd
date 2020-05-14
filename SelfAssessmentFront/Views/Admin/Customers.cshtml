@@ -3,7 +3,7 @@
     ViewBag.Vista = "Admin";
 }
 
-<h2>Customers</h2>
+<h2>Customers <a class="btn btn-success btn-circle" href="/admin/edit"><i class="fas fa-plus"></i></a></h2>
 
 <div class="container">
     <div class="row">
@@ -15,8 +15,7 @@
                         <th scope="col">Delete</th>
                     </tr>
                 </thead>
-                <tbody>
-                </tbody>
+                <tbody></tbody>
             </table>
         </div>
     </div>
@@ -26,30 +25,6 @@
 {
     <script>
         $(document).ready(function () {
-            //type ahead for a specific field
-            //var customers = new Bloodhound({
-            //    datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
-            //    queryTokenizer: Bloodhound.tokenizers.whitespace,
-            //    remote: {
-            //        url: '/api/customers?query=%QUERY',
-            //        wildcard: '%QUERY'
-            //    }
-            //});
-
-            //$('#customer').typeahead(
-            //    {
-            //        minLength: 3,
-            //        highligth: true
-            //    },
-            //    {
-            //        name: 'customers',
-            //        display: 'name',
-            //        source: customers
-            //    }
-            //).on("typeahead:select", function(e, customer) {
-            //    vm.customerId = customer.id;
-            //});
-
             //Creating table based in a json response from REST API
             var table = $("#customers").DataTable({
                 ajax: {
@@ -59,10 +34,12 @@
                 columns: [
                     {
                         data: "name"
-
                     },
                     {
-                        data: "name"
+                        data: "name",
+                        render: function (data) {
+                            return "<a href='' class='btn btn-danger btn-circle'><i class='fas fa-trash'></i></a>";
+                        }
                     }
                 ]
             });

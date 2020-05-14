@@ -19,6 +19,11 @@ namespace SelfAssessmentFront.Controllers
             return View();
         }
 
+        public IActionResult CustomersNew()
+        {
+            return View();
+        }
+
         public List<CustomersViewModel> Customerss()
         {
             List<CustomersViewModel> customers = new List<CustomersViewModel> {
