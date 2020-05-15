@@ -5,50 +5,120 @@
 
 <!-- Page Heading -->
 
-<h2>Oncoming interviews</h2>
+<div class="py-2 bg-light">
+    <div class="container">
+        <h2>Oncoming interviews</h2>
+        <div class="row">
+            @* foreach del model *@
+            <div class="col-md-6 px-2 py-1">
+                <div class="card shadow border-left-primary py-2">
+                    <div class="card-body">
+                        <h5 class="card-title">Profile one</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Organization</h6>
+                        <p class="card-text">profile description</p>
+                        <a href="#" class="card-link d-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#SugModal">Suggested candidates</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 px-2 py-1">
+                <div class="card shadow border-left-primary py-2">
+                    <div class="card-body">
+                        <h5 class="card-title">Profile two</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Organization</h6>
+                        <p class="card-text">profile description</p>
+                        <a href="#" class="card-link d-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#SugModal">Suggested candidates</a>
+                    </div>
+                </div>
+            </div>
 
-<div class="card">
-    <div class="card-body">
-        <h5 class="card-title">profile one</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Organization</h6>
-        <p class="card-text">profile description</p>
-        <a href="#" class="card-link d-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#SugModal">Suggested candidates</a>
+            <div class="col-md-6 px-2 py-1">
+                <div class="card shadow border-left-primary py-2">
+                    <div class="card-body">
+                        <h5 class="card-title">Profile three</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Organization</h6>
+                        <p class="card-text">profile description</p>
+                        <a href="#" class="card-link d-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#SugModal">Suggested candidates</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 px-2 py-1">
+                <div class="card shadow border-left-primary py-2">
+                    <div class="card-body">
+                        <h5 class="card-title">Profile four</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Organization</h6>
+                        <p class="card-text">profile description</p>
+                        <a href="#" class="card-link d-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#SugModal">Suggested candidates</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-<div class="card">
-    <div class="card-body">
-        <h5 class="card-title">profile two</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Organization</h6>
-        <p class="card-text">profile description</p>
-        <a href="#" class="card-link d-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#SugModal">Suggested candidates</a>
-    </div>
-</div>
 
-@*<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+
+    
+
+    @*<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <partial name="_SuggestedCandidates" />
+                </div>
+            </div>
+        </div>*@
+
+    <div class="modal fade" id="SugModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
-                <partial name="_SuggestedCandidates" />
-            </div>
-        </div>
-    </div>*@
-
-<div class="modal fade" id="SugModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Suggested candidates for profile #</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <partial name="_Candidates" />
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Suggested candidates for profile #</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <table id="suggestedCandidates" class="table table-bordered table-hover" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Email</th>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-@*@section Scripts
-{
-    <script src="@Url.Content("~/js/test.js")"></script>
-}*@
+    @section Scripts
+        {
+        <script>
+            $(document).ready(function () {
+                $.get("/Interviewer/SuggestedCandidates", function (data, status) {
+                    $('#suggestedCandidates').DataTable({
+                        data,
+                        columns: [
+                            {
+                                data: "name"
+                            },
+                            {
+                                data: "email"
+                            },
+                            {
+                                render: function () {
+                                    return "<a href='/Interviewer/SelfAssessment' class='d-inline-block btn btn-sm btn-primary shadow-sm'>Self assessment</a>";
+                                }
+                            },
+                            {
+                                render: function () {
+                                    return "<a href='/Interviewer/Interview' class='d-inline-block btn btn-sm btn-primary shadow-sm'>Interview</a>";
+                                }
+                            }
+                        ]
+                    });
+                });
+            });
+        </script>
+    }

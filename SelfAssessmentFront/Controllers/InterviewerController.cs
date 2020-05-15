@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using InterviewFront.Models;
 using Microsoft.AspNetCore.Mvc;
+using SelfAssessmentFront.ViewModels;
 
 namespace SelfAssessmentFront.Controllers
 {
@@ -44,6 +45,30 @@ namespace SelfAssessmentFront.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        [HttpGet]
+        public List<CandidatesViewModel> FoundCandidates()
+        {
+            return new List<CandidatesViewModel>()
+            {
+                new CandidatesViewModel() { Name = "Juan", Email = "juan@softtek.com" },
+                new CandidatesViewModel() { Name = "José", Email = "jose@softtek.com" },
+                new CandidatesViewModel() { Name = "Teresa", Email = "teresa@softtek.com" },
+                new CandidatesViewModel() { Name = "Fer" , Email = "fer@softtek.com" },
+            };
+        }
+
+        [HttpGet]
+        public List<CandidatesViewModel> SuggestedCandidates()
+        {
+            return new List<CandidatesViewModel>()
+            {
+                new CandidatesViewModel() { Name = "Juan", Email = "juan@softtek.com" },
+                new CandidatesViewModel() { Name = "José", Email = "jose@softtek.com" },
+                new CandidatesViewModel() { Name = "Teresa", Email = "teresa@softtek.com" },
+                new CandidatesViewModel() { Name = "Fer" , Email = "fer@softtek.com" },
+            };
         }
     }
 }
