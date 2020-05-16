@@ -56,26 +56,27 @@
 </div>
 
 
-    
 
-    @*<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <partial name="_SuggestedCandidates" />
-                </div>
-            </div>
-        </div>*@
 
-    <div class="modal fade" id="SugModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
+@*<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Suggested candidates for profile #</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">
+                <partial name="_SuggestedCandidates" />
+            </div>
+        </div>
+    </div>*@
+
+<div class="modal fade" id="SugModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Suggested candidates for profile #</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive-sm">
                     <table id="suggestedCandidates" class="table table-bordered table-hover" style="width:100%">
                         <thead>
                             <tr>
@@ -91,34 +92,39 @@
             </div>
         </div>
     </div>
+</div>
 
-    @section Scripts
-        {
-        <script>
-            $(document).ready(function () {
-                $.get("/Interviewer/SuggestedCandidates", function (data, status) {
-                    $('#suggestedCandidates').DataTable({
-                        data,
-                        columns: [
-                            {
-                                data: "name"
-                            },
-                            {
-                                data: "email"
-                            },
-                            {
-                                render: function () {
-                                    return "<a href='/Interviewer/SelfAssessment' class='d-inline-block btn btn-sm btn-primary shadow-sm'>Self assessment</a>";
-                                }
-                            },
-                            {
-                                render: function () {
-                                    return "<a href='/Interviewer/Interview' class='d-inline-block btn btn-sm btn-primary shadow-sm'>Interview</a>";
-                                }
+@section Scripts
+    {
+    <script>
+        $(document).ready(function () {
+            $.get("/Interviewer/SuggestedCandidates", function (data, status) {
+                $('#suggestedCandidates').DataTable({
+                    data,
+                    columns: [
+                        {
+                            data: "name"
+                        },
+                        {
+                            data: "email"
+                        },
+                        {
+                            //data: "name",
+                            //render: function (data) {
+                            //    return "<a href='/Interviewer/SelfAssessment' class='d-inline-block btn btn-sm btn-primary shadow-sm'>Self assessment" + data +  "</a>";
+                            //}
+                            render: function () {
+                                return "<a href='/Interviewer/SelfAssessment' class='d-inline-block btn btn-sm btn-primary shadow-sm'>Self assessment</a>";
                             }
-                        ]
-                    });
+                        },
+                        {
+                            render: function () {
+                                return "<a href='/Interviewer/Interview' class='d-inline-block btn btn-sm btn-primary shadow-sm'>Interview</a>";
+                            }
+                        }
+                    ]
                 });
             });
-        </script>
-    }
+        });
+    </script>
+}
