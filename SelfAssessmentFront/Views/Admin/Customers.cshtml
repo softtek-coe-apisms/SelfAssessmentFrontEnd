@@ -3,7 +3,7 @@
     ViewBag.Vista = "Admin";
 }
 
-<h2>Customers <a class="btn btn-success btn-circle" href="/admin/edit"><i class="fas fa-plus"></i></a></h2>
+<h2>Customers <a class="btn btn-success btn-circle" href="/admin/customerform/0"><i class="fas fa-plus"></i></a></h2>
 
 <div class="container">
     <div class="row">
@@ -33,7 +33,10 @@
                 },
                 columns: [
                     {
-                        data: "name"
+                        data: "name",
+                        render: function (data, type, customer) {
+                            return "<a href='customerform/" + customer.id + "'>" + customer.name + "</a>";
+                        }
                     },
                     {
                         data: "name",

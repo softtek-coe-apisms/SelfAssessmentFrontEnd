@@ -1,0 +1,75 @@
+﻿@model string
+@{
+    ViewData["Title"] = (int)ViewData["id"] == 0 ? "New Customer" : "Edit Customer";
+    ViewBag.Vista = "Admin";
+}
+    
+<h1>@ViewData["Title"]</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            @Html.Label("Client Name")
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            @using(Html.BeginForm("SaveCustomer", "Admin"))
+            {
+                <div class="form-group">
+                    @Html.LabelFor(m => m)
+                    
+                    <input class="form-control" value="@Model"/>
+                </div>
+                <div class="form-group">
+                    <h2>Profiles <a class="btn btn-success btn-circle" href="#"><i class="fas fa-plus"></i></a></h2>
+
+                    <table id="profiles" class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Profile</th>
+                                <th scope="col">Skills</th>
+                                <th scope="col">Options</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary">Save</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@section scripts{ 
+    <script>
+        $(document).ready(function () {
+            //Creating a table based in a json response REST api
+            var table = $("#profiles").DataTable({
+                ajax: {
+                    url: "/admin/profiles",
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        data: "name",
+                        render: function (data, type, profile) {
+                            return "<a href='#'>" + data + "</a>"
+                        }
+                    },
+                    {
+                        data: "skills"
+                    },
+                    {
+                        data: "id",
+                        render: function () {
+                            return "<a href='' class='btn btn-danger btn-circle'><i class='fas fa-trash'></i></a>";
+                        }
+                    }
+                ]
+            });
+        })
+    </script>
+}

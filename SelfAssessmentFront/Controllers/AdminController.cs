@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using SelfAssessmentFront.Dtos;
 using SelfAssessmentFront.ViewModels;
 
 namespace SelfAssessmentFront.Controllers
@@ -24,9 +25,16 @@ namespace SelfAssessmentFront.Controllers
             return View();
         }
 
-        public IActionResult CustomersNew()
+        public IActionResult CustomerForm(int id)
         {
-            return View();
+            ViewData["id"] = id;
+            var customerName = "Microsoft";
+            return View("CustomerForm", customerName);
+        }
+
+        public IActionResult SaveCustomer()
+        {
+            return Created("", "");
         }
 
         public List<CustomersViewModel> Customerss()
@@ -36,6 +44,14 @@ namespace SelfAssessmentFront.Controllers
                 new CustomersViewModel { Id = 2, Name = "Juan" },
             };
             return customers;
+        }
+        public List<ProfileDto> Profiles()
+        {
+            return new List<ProfileDto>
+            {
+                new ProfileDto{ Id = 1, Name = "Ninja developer", Skills = new List<string>{ ".net", "java"} },
+                new ProfileDto{ Id = 1, Name = "React sinior", Skills = new List<string>{ "javaScript", "React"} }
+            };
         }
     }
 }
