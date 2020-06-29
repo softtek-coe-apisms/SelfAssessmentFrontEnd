@@ -1,0 +1,80 @@
+﻿
+@{
+    ViewData["Title"] = "Progress";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Vista = "Candidate";
+
+    var completed = ViewBag.PercentageCompleted;
+}
+
+<h2>Progress</h2>
+<div class="row">
+    <div class="col-12">
+        <div class="progress">
+            <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: @completed%;" aria-valuenow="@completed" aria-valuemin="0" aria-valuemax="100">@completed%</div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <table class="table table-bordered table-hover" id="progress">
+            <thead>
+                <tr>
+                    <th scope="col">Completed</th>
+                    <th scope="col">Training</th>
+                    <th scope="col">Options</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</div>
+
+@section scripts{ 
+    <script>
+
+        $(document).ready(function () {
+            var table = $("#progress").DataTable({
+                ajax: {
+                    url: "/api/candidate/progress",
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        data: "isCompleted",
+                        render: function (data) {
+                            if (data === true)
+                                return "<i class='far fa-check-square'></i>";
+                            return "<i class='fas fa-square'></i>";
+                        }
+                    },
+                    {
+                        data: "name"
+                    },
+                    {
+                        data: "id",
+                        render: function (data) {
+                            return "<button class='btn btn-success btn-circle js-delete' data-customer-id=" + data + "><i class='fas fa-thumbs-up'></i></button> <button class='btn btn-danger btn-circle js-delete' data-customer-id=" + data + "><i class='fas fa-thumbs-down'></i></button>";
+                        }
+                    }
+                ]
+            });
+
+            $("#progress").on("click", ".js-delete", function () {
+                var button = $(this);
+
+                bootbox.confirm("Are you sure?", function (result) {
+                    if (result) {
+                        $.ajax({
+                            url: "" + button.attr("data-customer-id"),
+                            method: "DELETE",
+                            success: function () {
+                                table.row(button.parents("tr")).remove().draw();
+                            }
+                        })
+                    }
+                });
+            });
+        });
+    </script>
+}

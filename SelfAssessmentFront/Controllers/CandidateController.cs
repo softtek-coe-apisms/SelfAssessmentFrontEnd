@@ -22,5 +22,12 @@ namespace SelfAssessmentFront.Controllers
         {
             return View();
         }
+
+        public IActionResult Progress()
+        {
+            var courses = new Api.CandidateController().Progress();
+            ViewBag.PercentageCompleted = courses.Aggregate(0.0, (p, n) => p += n.IsCompleted ? 1 : 0, r => r * 100 / courses.Count );
+            return View();
+        }
     }
 }
