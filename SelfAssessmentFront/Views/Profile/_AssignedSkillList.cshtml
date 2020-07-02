@@ -1,0 +1,68 @@
+﻿
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+    <div class="modal fade" id="AssignedSkillList" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <p class="text-primary m-0 font-weight-bold">
+                        Skill List
+                    </p>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="table-responsive table mt-2">
+                        <table class="table dataTable my-0">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Level</th>
+                                    <th>Options</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>
+                                        <a href="#" class="btn btn-danger btn-circle" data-toggle="modal" data-target="#deleteProfile"><i class="fas fa-trash"></i></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>2</td>
+                                    <td>
+                                        <a href="#" class="btn btn-danger btn-circle" data-toggle="modal" data-target="#deleteProfile"><i class="fas fa-trash"></i></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Level</th>
+                                    <th>Options</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#AddSkillToProfile">
+                        <i class="fa fa-plus"></i>
+                        Add new Skill
+                    </button>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="#">Save</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<partial name="_AddSkillToProfile" />

@@ -1,0 +1,87 @@
+﻿
+@{
+    ViewData["Title"] = "ProfileList";
+    ViewBag.Vista = "Admin";
+}
+
+<h2>ProfileList</h2>
+
+<div class="card shadow">
+    <div class="card-header py-3">
+        <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#NewProfile">
+            <i class="fa fa-plus"></i>
+            Add new profile
+        </button>
+    </div>
+
+    <div class="card-body">
+        <div class="table-responsive table mt-2">
+            <table class="table dataTable my-0">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Client</th>
+                        <th>Name</th>
+                        <th>Is Open</th>
+                        <th>Open Positions</th>
+                        <th>Office</th>
+                        <th>Level</th>
+                        <th>Options</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>
+                            <a href="#" class="btn btn-warning btn-circle ml-1" data-toggle="modal" data-target="#EditProfile"><i class="fas fa-edit"></i></a>
+                            <a href="#" class="btn btn-danger btn-circle ml-1" data-toggle="modal" data-target="#deleteProfile"><i class="fas fa-trash"></i></a>
+                            <a href="#" class="btn btn-info btn-circle ml-1" data-toggle="modal" data-target="#AssignedSkillList"><i class="fas fa-list-ul"></i></a>
+                            <a href="#" class="btn btn-primary btn-circle ml-1" data-toggle="modal" data-target="#deleteModal"><i class="fas fa-tools"></i></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td>
+                            <a href="#" class="btn btn-warning btn-circle ml-1" data-toggle="modal" data-target="#EditProfile"><i class="fas fa-edit"></i></a>
+                            <a href="#" class="btn btn-danger btn-circle ml-1" data-toggle="modal" data-target="#deleteProfile"><i class="fas fa-trash"></i></a>
+                            <a href="#" class="btn btn-info btn-circle ml-1" data-toggle="modal" data-target="#AssignedSkillList"><i class="fas fa-list-ul"></i></a>
+                            <a href="#" class="btn btn-primary btn-circle ml-1" data-toggle="modal" data-target="#deleteModal"><i class="fas fa-tools"></i></a>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>ID</th>
+                        <th>Client</th>
+                        <th>Name</th>
+                        <th>Is Open</th>
+                        <th>Open Positions</th>
+                        <th>Office</th>
+                        <th>Level</th>
+                        <th>Options</th>
+                    </tr>
+                </tfoot>
+            </table>
+
+        </div>
+    </div>
+
+</div>
+
+@*Partial Views*@
+<partial name="_EditProfile" />
+<partial name="_DeleteProfile" />
+<partial name="_NewProfile" />
+<partial name="_AssignedSkillList" />
